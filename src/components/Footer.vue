@@ -30,9 +30,9 @@
                     <p>Privacy</p>
                     <p>Returns policy</p>
                 </div>
-                <div>
+                <div class="main__info--newsletter">
                     <p>Join our mailing list</p>
-                    <div>
+                    <div class="main__info--form">
                         <input class="main__info--email" type="email" name="" id="" placeholder="your@email.com">
                         <button class="main__info--button">Sing up</button>
                     </div>
@@ -42,7 +42,7 @@
     </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .main {
     background-color: #2A254B;
     width: 100%;
@@ -52,6 +52,10 @@
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 1rem;
+
+    @media (max-width: 480px) {
+        padding: 0 0.5rem;
+    }
 }
 
 .main__info {
@@ -60,6 +64,57 @@
     padding-top: 58px;
     padding-bottom: 58px;
     color: #ffffff;
+    gap: 40px;
+
+    @media (max-width: 1024px) {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        padding: 40px 0;
+        gap: 25px;
+    }
+
+    @media (max-width: 480px) {
+        padding: 30px 0;
+        gap: 20px;
+    }
+}
+
+.main__info--about {
+    @media (max-width: 1024px) {
+        flex: 1 1 calc(50% - 30px);
+        min-width: 200px;
+    }
+
+    @media (max-width: 768px) {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+}
+
+.main__info--newsletter {
+    @media (max-width: 1024px) {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+}
+
+.main__info--form {
+    display: flex;
+    margin-top: 16px;
+
+    @media (max-width: 1024px) {
+        justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
 }
 
 .main__info--email {
@@ -68,6 +123,19 @@
     border-color: transparent;
     background: #7c77aa;
     color: white;
+
+    @media (max-width: 1024px) {
+        width: 300px;
+    }
+
+    @media (max-width: 768px) {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    @media (max-width: 480px) {
+        padding: 14px;
+    }
 }
 
 .main__info--email::placeholder {
@@ -78,6 +146,17 @@
 .main__info--button {
     padding: 17px 32px;
     border-color: transparent;
+    background: #ffffff;
+    cursor: pointer;
+
+    @media (max-width: 768px) {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    @media (max-width: 480px) {
+        padding: 14px 24px;
+    }
 }
 
 h4 {

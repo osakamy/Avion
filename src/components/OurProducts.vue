@@ -31,21 +31,76 @@ const cards = [
         :title="card.title" 
         :price="card.price" />
     </div>
-    <p>View collection</p>
+    <p class="view-collection">View collection</p>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
     .cards {
-        display: flex;
-        justify-content: space-between;
-    }
-    h2 {
-        padding-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    @media (max-width: 1024px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
     }
 
-    p {
-        padding: 67px 32px 16px 32px;
-        text-align: center;
-        margin-bottom: 144px;
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
     }
+
+    @media (max-width: 480px) {
+        gap: 20px;
+        padding: 0 10px;
+    }
+}
+
+h2 {
+    padding-bottom: 25px;
+    font-size: 32px;
+    text-align: center;
+
+    @media (max-width: 1024px) {
+        font-size: 28px;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 24px;
+        padding-bottom: 20px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 20px;
+        padding-bottom: 15px;
+        padding: 0 10px;
+    }
+}
+
+.view-collection {
+    padding: 67px 32px 16px 32px;
+    text-align: center;
+    margin-bottom: 144px;
+    cursor: pointer;
+    font-size: 16px;
+
+    @media (max-width: 1024px) {
+        margin-bottom: 100px;
+        padding: 50px 0 16px 0;
+    }
+
+    @media (max-width: 768px) {
+        margin-bottom: 80px;
+        padding: 40px 0 16px 0;
+        font-size: 15px;
+    }
+
+    @media (max-width: 480px) {
+        margin-bottom: 60px;
+        padding: 30px 10px 16px 10px;
+        font-size: 14px;
+    }
+}
 </style>
