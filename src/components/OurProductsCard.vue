@@ -14,13 +14,7 @@ const props = defineProps({
     </div>
 </template>
 
-<style scoped>
-.card {
-    text-align: center;
-    max-width: 305px;
-    width: 100%;
-}
-
+<style scoped  lang="scss">
 .card__image {
     width: 100%;
     height: auto;
@@ -39,6 +33,7 @@ const props = defineProps({
     @media (max-width: 480px) {
         font-size: 18px;
         padding: 0 10px;
+        text-align: center;
     }
 }
 
@@ -48,6 +43,7 @@ const props = defineProps({
     
     @media (max-width: 480px) {
         font-size: 16px;
+        text-align: center;
     }
 }
 </style>

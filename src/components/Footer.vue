@@ -24,7 +24,7 @@
                 </div>
                 <div class="main__info--about">
                     <h4>Our company</h4>
-                    <p>About us</p>
+                    <RouterLink to="/about" class="main__info--about__link">About us</RouterLink>
                     <p>Vacancies</p>
                     <p>Contact us</p>
                     <p>Privacy</p>
@@ -162,5 +162,11 @@
 h4 {
     font-size: 16px;
     font-weight: bold;
+}
+
+.main__info--about__link {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
 }
 </style>

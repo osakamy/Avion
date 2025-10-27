@@ -38,6 +38,7 @@
     .main__info {
         max-width: 536px;
         display: flex;
+        margin: 0 auto;
         flex-direction: column;
         row-gap: 25px;
         justify-content: center;

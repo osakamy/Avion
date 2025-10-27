@@ -74,6 +74,7 @@
         background: #7c77aa;
         border-color: transparent;
         margin-bottom: 196px;
+        cursor: pointer;
 
         @media (max-width: 1024px) {
             margin-bottom: 60px;

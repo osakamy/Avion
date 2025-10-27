@@ -7,7 +7,7 @@
         <div class="header__container">
             <div class="header__main">
                 <img src="../assets/Search.svg" alt="">
-                <p class="header__logo">Avion</p>
+                <RouterLink to="/" class="header__logo">Avion</RouterLink>
                 <div class="header__main--info">
                     <img src="../assets/ShoppingCart.svg" alt="">
                     <img src="../assets/UserAvatar.svg" alt="">
@@ -60,6 +60,9 @@
 .header__logo {
     font-size: 24px;
     font-weight: 400;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 
     @media (max-width: 768px) {
         font-size: 20px;
@@ -102,5 +105,9 @@
     @media (max-width: 768px) {
         display: none;
     }
+}
+
+p {
+    cursor: pointer;
 }
 </style>
