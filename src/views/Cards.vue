@@ -224,20 +224,28 @@ const decrement = () => {
         background: #2A254B;
         color: white;
         border: 1px solid transparent;
+        cursor: pointer;
     }
 
     &--quantity__controls--btn__plus {
-        margin-right: 182px;
         border: 1px solid transparent;
+        width: 20px;
+        cursor: pointer;
     }
 
     &--quantity__controls--btn__minus {
         border: 1px solid transparent;
+        width: 20px;
+        cursor: pointer;
     }
 
     &--quantity__controls--quantity {
         margin-left: 33px;
         margin-right: 33px;
+    }
+
+    &__quantity-controls {
+    margin-right: 182px;
     }
 }
 
