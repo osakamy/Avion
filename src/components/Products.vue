@@ -8,22 +8,26 @@ const cards = [
     {
     image: Card,
     title: "The Dandy chair",
-    price: "£250"
+    price: "£250",
+    id: 1,
 },
 {
     image: Card1,
     title: "Rustic Vase Set",
-    price: "£155"
+    price: "£155",
+    id: 2,
 },
 {
     image: Card2,
     title: "The Silky Vase",
-    price: "£125"
+    price: "£125",
+    id: 3,
 },
 {
     image: Card3,
     title: "The Lucy Lamp",
-    price: "£399"
+    price: "£399",
+    id: 4,
 }
 ]
 </script>
@@ -36,6 +40,7 @@ const cards = [
         :image="card.image"
         :title="card.title"
         :price="card.price"
+        :id="card.id"
         />
     </div>
     <p class="view-collection">View collection</p>

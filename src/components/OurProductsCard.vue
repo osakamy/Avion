@@ -1,20 +1,28 @@
 <script setup>
+
+
 const props = defineProps({
     image: String,
     title: String,
-    price: String
+    price: String,
+    id: String,
 })
 </script>
 
 <template>
-    <div class="card">
+    <RouterLink :to="`cards/${ props.id }`" class="card">
         <img :src="props.image" alt="" class="card__image">
         <h3 class="card__title">{{ props.title }}</h3>
         <p class="card__price">{{ props.price }}</p>
-    </div>
+    </RouterLink>
 </template>
 
 <style scoped  lang="scss">
+.card {
+    text-decoration: none;
+    color: black;
+}
+
 .card__image {
     width: 100%;
     height: auto;

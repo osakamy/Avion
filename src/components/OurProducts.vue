@@ -7,17 +7,20 @@ const cards = [
     {
     image: Card,
     title: "The Poplar suede sofa",
-    price: "£980"
+    price: "£980",
+    id: 5,
 },
 {
     image: Card1,
     title: "The Dandy chair",
-    price: "£250"
+    price: "£250",
+    id: 6,
 },
 {
     image: Card2,
     title: "The Dandy chair",
-    price: "£250"
+    price: "£250",
+    id: 7,
 }
 ]
 </script>
@@ -29,7 +32,8 @@ const cards = [
         v-for="card in cards" 
         :image="card.image" 
         :title="card.title" 
-        :price="card.price" />
+        :price="card.price"
+        :id="card.id" />
     </div>
     <p class="view-collection">View collection</p>
 </template>

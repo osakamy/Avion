@@ -1,24 +1,28 @@
 <script setup>
+import { RouterLink } from 'vue-router';
 const props = defineProps({
     image: String,
     title: String,
     price: String,
+    id: String,
 }
 )
 </script>
 
 <template>
-<div>
+<RouterLink :to="`cards/${ props.id }`" class="card">
     <img :src="props.image" alt="">
     <h3>{{ props.title }}</h3>
     <p>{{ props.price }}</p>
-</div>
+</RouterLink>
 </template>
 
 <style scoped lang="scss">
 .card {
     text-align: center;
     max-width: 305px;
+    text-decoration: none;
+    color: black;
 
     @media (max-width: 768px) {
         max-width: 280px;
