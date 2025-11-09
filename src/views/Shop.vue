@@ -1,6 +1,5 @@
 <script setup>
-import { useRoute } from 'vue-router';
-import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import Card1 from '../assets/Card.svg';
 import Card2 from '../assets/Card1.svg';
 import Card3 from '../assets/Card2.svg';
@@ -9,12 +8,10 @@ import Card5 from '../assets/OurCard.svg';
 import Card6 from '../assets/OurCard1.svg';
 import Card7 from '../assets/OurCard2.svg';
 
-import { cardsToCart } from '@/stores/cardsToCart';
-    
-const cardToCart = cardsToCart();
+const router = useRouter();
 
-function addToCart() {
-    cardToCart.addToCart(result.id, result.title, result.price, result.image, quantity.value);
+const openProduct = (cardId) => {
+    router.push(`/cards/${cardId}`);
 }
 
 const cards = [
@@ -110,152 +107,37 @@ const cards = [
     info: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex eveniet maxime explicabo, accusantium ipsum non dicta voluptatum temporibus possimus dolore, quaerat qui vero distinctio voluptate a rerum, sit accusamus quam.",
 }
 ]
-
-const route = useRoute();
-const id = route.params.id;
-const quantity = ref(1);
-
-
-
-const mas = cards.filter(card => card.id == id);
-const result = mas[0];
-
-const increment = () => {
-    quantity.value++;
-}
-
-const decrement = () => {
-    if (quantity.value > 1) {
-        quantity.value--;
-    }
-}
 </script>
 
 <template>
-<section>
-    <div class="card">
-        <img :src="result.image" alt="">
-        <div>
-           <h3 class="card__title">{{ result.title }}</h3>
-           <p class="card__paragraph">{{ result.price }}</p>
-           <div class="card__info">
-            <h4 class="card__info__title">{{ result.description }}</h4>
-            <p class="card__info__paragraph">{{ result.info }}</p>
-            <ul class="card__info__list">
-                <li>{{ result.advantages }}</li>
-                <li>{{ result.advantages }}</li>
-                <li>{{ result.advantages }}</li>
-            </ul>
-            <div class="card__info--additional">
-                <h3 class="card__info--additional__title">{{ result.add }}</h3>
-                <div class="card__info__dimensions">
-                    <p>Height:</p>
-                    <p>Width:</p>
-                    <p>Depth:</p>
-                </div>
-                <div class="card__info__sizes">
-                    <span>{{ result.Height }}</span>
-                    <span>{{ result.Width }}</span>
-                    <span>{{ result.Depth }}</span>
-                </div>
-                <div class="add__cart">
-                    <h4 class="add__cart__title">Amount:</h4>
-                    <div class="add__cart__quantity-controls">
-                        <button class="add__cart--quantity__controls--btn__minus" @click="decrement" :disabled="quantity <= 1">-</button>
-                        <span class="add__cart--quantity__controls--quantity">{{ quantity }}</span>
-                        <button class="add__cart--quantity__controls--btn__plus" @click="increment">+</button>
-                    </div>
-                    <button class="add__cart--btn" @click="addToCart">Add to cart</button>
-                </div>
-            </div>
-           </div>
+<div class="hero">
+    <h2 class="hero__assortment">Assortment</h2>
+    <div class="hero__cards">
+        <div v-for="card in cards">
+            <img :src="card.image" :alt="card.title" @click="openProduct(card.id)" style="cursor: pointer;">
+            <p>{{ card.title }}</p>
+            <p>{{ card.price }}</p>
         </div>
     </div>
-</section>
+</div>
 </template>
 
 <style scoped lang="scss">
-.card {
-    display: flex;
-    gap: 62px;
+.hero {
+    padding-bottom: 30px;
 
-    &__title {
-        font-size: 36px;
+    &__assortment {
+        text-align: center;
+        padding-bottom: 50px;
+        font-weight: bold;
+        
     }
 
-    &__paragraph {
-        font-size: 24px;
-    }
-
-    &__info__title {
-        padding-bottom: 16px;
-    }
-
-    &__info__paragraph {
-        padding-bottom: 20px;
-    }
-
-    &__info__list {
-        padding-bottom: 43px;
-    }
-
-    &__info__dimensions {
+    &__cards {
         display: flex;
-        gap: 57px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        row-gap: 30px;
     }
-
-    &__info--additional__title {
-        padding-bottom: 28px;
-    }
-
-    &__info__sizes {
-        display: flex;
-        gap: 65px;
-        color: #505977;
-    }
-}
-
-.add__cart {
-    display: flex;
-    padding-top: 69px;
-    align-items: center;
-    
-    &__title {
-        padding-right: 22px;
-    }
-
-    &--btn {
-        padding: 16px 32px;
-        background: #2A254B;
-        color: white;
-        border: 1px solid transparent;
-        cursor: pointer;
-    }
-
-    &--quantity__controls--btn__plus {
-        border: 1px solid transparent;
-        width: 20px;
-        cursor: pointer;
-    }
-
-    &--quantity__controls--btn__minus {
-        border: 1px solid transparent;
-        width: 20px;
-        cursor: pointer;
-    }
-
-    &--quantity__controls--quantity {
-        margin-left: 33px;
-        margin-right: 33px;
-    }
-
-    &__quantity-controls {
-    margin-right: 182px;
-    }
-}
-
-img {
-    width: 721px;
-    height: 759px;
 }
 </style>

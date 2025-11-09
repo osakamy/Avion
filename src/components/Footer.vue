@@ -11,7 +11,7 @@
                     <p>Best sellers</p>
                     <p>Recently viewed</p>
                     <p>Popular this week</p>
-                    <p>All products</p>
+                    <RouterLink to="/shop" class="main__info--about__link">All products</RouterLink>
                 </div>
                 <div class="main__info--about">
                     <h4>Categories</h4>
